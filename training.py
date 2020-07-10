@@ -208,7 +208,7 @@ def computeLoss(loss_name, CE, w_for_GDL, tversky_alpha, tversky_beta, focal_tve
             loss = alpha * losses.GDL(predictions, labels, w_for_GDL) + (1.0 - alpha) * losses.surface_loss(labels, predictions)
         else:
             loss = losses.GDL(predictions, labels, w_for_GDL)
-    elif loss_name == "FOCAL TVERSKY":
+    elif loss_name == "FOCAL_TVERSKY":
         loss = losses.focal_tversky(predictions, labels, tversky_alpha, tversky_beta, focal_tversky_gamma)
     elif loss_name == "FOCAL+BOUNDARY":
         if epoch >= epochs_switch:
